@@ -1,0 +1,7 @@
+log_level: info
+db_url: sqlite:tracker.db
+port: 8080
+username: user
+password: pass
+device_id: device_id
+tracker_id: tracker_id
