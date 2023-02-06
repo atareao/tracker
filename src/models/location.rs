@@ -19,10 +19,10 @@ impl fmt::Display for Location {
 
 #[derive(Debug, Serialize, Deserialize)]
 pub struct NewLocation {
-    pub tracker_id: String,
-    pub latitude: f32,
-    pub longitude: f32,
-    pub timestamp: i64,
+    pub tid: String,
+    pub lat: f32,
+    pub lon: f32,
+    pub tst: i64,
 }
 
 

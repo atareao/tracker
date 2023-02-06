@@ -35,13 +35,11 @@ RUN cargo build  --target x86_64-unknown-linux-musl --release
 ###############################################################################
 FROM alpine:3.16
 
-ARG APP=ytpodcast
+ARG APP=tracker
 
 RUN apk add --update --no-cache \
-            su-exec~=0.2-r1 \
-            tzdata~=2022c-r0 \
-            ffmpeg~=5.0 \
-            yt-dlp~=2022.05.18-r0 &&\
+            su-exec~=0.2 \
+            tzdata~=2022 &&\
     rm -rf /var/cache/apk && \
     rm -rf /var/lib/app/lists*
 # Copy the user
@@ -55,4 +53,4 @@ COPY migrations/ /app/migrations/
 COPY --from=builder /app/target/x86_64-unknown-linux-musl/release/$APP /app/
 
 ENTRYPOINT ["/bin/sh", "/app/entrypoint.sh"]
-CMD ["/app/ytpodcast"]
+CMD ["/app/tracker"]

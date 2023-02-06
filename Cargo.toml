@@ -8,6 +8,7 @@ authors = ["Lorenzo Carbonell <lorenzo.carbonell.cerezo@gmail.com>"]
 
 [dependencies]
 tokio = { version = "1.22", features = ["full", "time"] }
+openssl = { version = "0.10", features = ["vendored"] }
 sqlx = { version = "0.6", features = ["runtime-tokio-native-tls", "sqlite", "macros", "offline", "chrono"] }
 axum = { version = "0.6" }
 tower = "0.4"

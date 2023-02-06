@@ -35,11 +35,12 @@ async fn create(
     ctx: Extension<ApiContext>,
     extract::Json(req): extract::Json<NewLocation>,
 ) -> impl IntoResponse{
-    Location::create( &ctx.pool, &req.tracker_id, req.latitude, req.longitude,
-            req.timestamp)
+    let response: [Location; 0] = [];
+    Location::create( &ctx.pool, &req.tid, req.lat, req.lon,
+            req.tst)
         .await
         .map_err(|error| LocationError::Sqlx(error.to_string()))
-        .map(|location| Json(location))
+        .map(|_| Json(response))
         //.on_db_error(|e| Error::unprocessable_entity([("error", e.to_string())]))
 }
 
